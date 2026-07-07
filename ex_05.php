@@ -1,19 +1,20 @@
 <?php
 
-function analisarTexto($texto, $quant_palavras, $quant_caracteres, $quant_vogais, $quant_consoantes){
+function analisarTexto($texto){
 
 $quant_palavras = str_word_count($texto);
 $quant_caracteres = mb_strlen($texto, 'UTF-8');
 $quant_vogais = preg_match_all('/[aeiouáéíóúãõâêôà]/i', $texto, $matches);
 $quant_consoantes = preg_match_all('/[bcdfghjklmnpqrstvwxyz]/i', $texto, $matches);
 
+return "O texto tem $quant_palavras palavras, $quant_caracteres caracteres, $quant_vogais vogais e $quant_consoantes consoantes";
 
 }
 
 $texto = "Analisar textos é demais!";
 
 echo "texto: $texto <br>";
-echo "quantidade de palavras: $quant_palavras <br>";
+echo analisarTexto($texto);
 
 
 ?>
